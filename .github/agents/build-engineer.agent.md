@@ -39,7 +39,7 @@ tools:
   перевірити workflow GitHub Actions для трьох операційних систем;
 - `check` — `.github/prompts/check.prompt.md`: виконати комплексну перевірку
   проєкту;
-- `init` — `.github/prompts/init.prompt.md`: виконати початкове налаштування
+- `project-init` — `.github/prompts/project-init.prompt.md`: виконати початкове налаштування
   та визначити безпечний порядок подальших дій.
 
 ## 5. Правила роботи з файлами
