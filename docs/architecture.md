@@ -35,7 +35,7 @@ Hello World. Він вирішує такі задачі:
   macOS;
 - `check` — виконує read-only перевірку інструкцій, проєкту, тестів, збірки,
   CI та Git-відстеження;
-- `init` — послідовно оркеструє всі попередні етапи та завершує повною
+- `project-init` — послідовно оркеструє всі попередні етапи та завершує повною
   перевіркою.
 
 ## 4. Дані між етапами
@@ -65,9 +65,9 @@ ci.sh + ci.bat
 GitHub Actions запускає відповідний локальний CI-скрипт на кожній ОС і
 завантажує каталог `dist/`.
 
-## 5. Обробка помилок оркестратором `init`
+## 5. Обробка помилок оркестратором `project-init`
 
-Оркестратор `init` виконує етапи строго в такому порядку:
+Оркестратор `project-init` виконує етапи строго в такому порядку:
 
 1. `git-init`;
 2. `create-project`;
@@ -76,7 +76,7 @@ GitHub Actions запускає відповідний локальний CI-с�
 5. `check`.
 
 Після кожного етапу він перевіряє результат. Якщо етап або його перевірка
-завершилися помилкою, `init` негайно зупиняється, не запускає наступні етапи
+завершилися помилкою, `project-init` негайно зупиняється, не запускає наступні етапи
 та виводить звіт із назвою кроку, причиною, виводом команди й необхідним
 виправленням. Загальний успіх дозволений лише після явного
 `Статус: PASSED` від `check`.
@@ -87,7 +87,7 @@ GitHub Actions запускає відповідний локальний CI-с�
 |---|---|
 | Агент | `.github/agents/build-engineer.agent.md` |
 | Skills | `.github/skills/project-scaffold/SKILL.md`, `.github/skills/build-and-test/SKILL.md`, `.github/skills/github-actions/SKILL.md` |
-| Commands | `.github/prompts/git-init.prompt.md`, `.github/prompts/create-project.prompt.md`, `.github/prompts/create-build.prompt.md`, `.github/prompts/create-actions.prompt.md`, `.github/prompts/check.prompt.md`, `.github/prompts/init.prompt.md` |
+| Commands | `.github/prompts/git-init.prompt.md`, `.github/prompts/create-project.prompt.md`, `.github/prompts/create-build.prompt.md`, `.github/prompts/create-actions.prompt.md`, `.github/prompts/check.prompt.md`, `.github/prompts/project-init.prompt.md` |
 | Тести Jest | `tests/basic.test.js` |
 | Збірка | `scripts/build.js` |
 | Локальний CI | `ci.sh`, `ci.bat` |
